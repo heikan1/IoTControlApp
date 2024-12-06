@@ -1,0 +1,93 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_horizontal"
+    android:background="#FAFAFA">
+
+    <!-- Sayfa Başlığı -->
+    <TextView
+        android:id="@+id/pageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Perde Kontrol"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        android:textColor="#3F51B5" />
+
+    <!-- Aç ve Kapat Butonları -->
+    <Button
+        android:id="@+id/openCurtainButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Aç"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/closeCurtainButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kapat"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#F44336"
+        android:textColor="#FFFFFF" />
+
+    <!-- Zaman Ayarları -->
+    <TextView
+        android:id="@+id/scheduleTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zaman Ayarları"
+        android:textSize="18sp"
+        android:layout_marginBottom="10dp"
+        android:textColor="#000000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/openTimeInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Açılma zamanı seçin"
+            android:focusable="true"
+            android:backgroundTint="#CCCCCC"
+            android:inputType="time"
+            android:layout_marginBottom="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/closeTimeInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Kapanma zamanı seçin"
+            android:focusable="true"
+            android:backgroundTint="#CCCCCC"
+            android:inputType="time"
+            android:layout_marginBottom="20dp" />
+    </LinearLayout>
+
+    <!-- Zamanları Gönder Butonu -->
+    <Button
+        android:id="@+id/sendTimesButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zamanları Gönder"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#3F51B5"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>

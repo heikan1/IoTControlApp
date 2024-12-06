@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Başlık -->
+    <TextView
+        android:id="@+id/projectTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Akıllı Ev Sistemi"
+        android:textColor="#3F51B5"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Servo Motor Kontrolü Butonu -->
+    <Button
+        android:id="@+id/btnServo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#3F51B5"
+        android:text="Servo Motor Kontrol"
+        android:textColor="#FFFFFF" />
+
+    <!-- Uyku Takibi Butonu -->
+    <Button
+        android:id="@+id/btnSleepTracking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#4CAF50"
+        android:text="Uyku Takibi"
+        android:textColor="#FFFFFF" />
+
+    <!-- Titreşim Sensörü İzleme Butonu -->
+    <Button
+        android:id="@+id/btnVibrationSensor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#FF5722"
+        android:text="Titreşim Sensörü İzleme"
+        android:textColor="#FFFFFF" />
+</LinearLayout>
