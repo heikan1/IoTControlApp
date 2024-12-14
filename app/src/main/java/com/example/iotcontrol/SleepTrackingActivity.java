@@ -7,15 +7,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
+import android.util.Log;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.view.View;
 import android.widget.Toast;
+import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
 
 public class SleepTrackingActivity extends AppCompatActivity {
 
@@ -31,6 +36,42 @@ public class SleepTrackingActivity extends AppCompatActivity {
         nfcStatus = findViewById(R.id.nfcStatus);
         Button startSleepButton = findViewById(R.id.startSleepButton);
         Button stopSleepButton = findViewById(R.id.stopSleepButton);
+        Button showSleepScheduleButton = findViewById(R.id.showSleepScheduleButton);
+        ListView sleepScheduleListView = findViewById(R.id.sleepScheduleListView);
+        TextView averageSleepDataTextView = findViewById(R.id.averageSleepDataTextView);
+
+        // Example sleep data (Replace with database query in a real app)
+        ArrayList<Integer> sleepDurations = new ArrayList<>();
+        sleepDurations.add(7); // hours
+        sleepDurations.add(6);
+        sleepDurations.add(8);
+        // Create Example Sleep Data
+        ArrayList<String> sleepScheduleData = new ArrayList<>();
+        sleepScheduleData.add("Sleep: 10:30 PM | Wake: 6:30 AM");
+        sleepScheduleData.add("Sleep: 11:00 PM | Wake: 7:00 AM");
+        sleepScheduleData.add("Sleep: 9:45 PM | Wake: 5:45 AM");
+
+        // Create Adapter for ListView
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_list_item_1,
+                sleepScheduleData
+        );
+
+        sleepScheduleListView.setAdapter(adapter);
+
+        if (!sleepDurations.isEmpty()) {
+            int total = 0;
+            for (int duration : sleepDurations) {
+                total += duration;
+            }
+            int average = total / sleepDurations.size();
+            String averageSleepText = "Average Sleep: " + average + " hours";
+
+            // Display Average Sleep Data
+            averageSleepDataTextView.setText(averageSleepText);
+            averageSleepDataTextView.setVisibility(View.VISIBLE);
+        }
 
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
@@ -39,6 +80,19 @@ public class SleepTrackingActivity extends AppCompatActivity {
             return;
         }
 
+        showSleepScheduleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (sleepScheduleListView.getVisibility() == View.GONE) {
+                    sleepScheduleListView.setVisibility(View.VISIBLE);
+                    showSleepScheduleButton.setText( "Uyku Geçmişini Gizle");;
+                } else {
+                    sleepScheduleListView.setVisibility(View.GONE);
+                    showSleepScheduleButton.setText("Uyku Geçmişini Göster");
+                }
+                //isListVisible = !isListVisible;
+            }
+        });
         // Uyku Takibini Başlat
         startSleepButton.setOnClickListener(v -> {
             isTracking = true;
